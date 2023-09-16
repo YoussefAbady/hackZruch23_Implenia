@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_country,access_country,model_country,base.group_user,1,1,1,1
+access_division,access_division,model_division,base.group_user,1,1,1,1
+access_investment_center,access_investment_center,model_investment_center,base.group_user,1,1,1,1
+access_currency,access_currency,model_currency,base.group_user,1,1,1,1
+access_case,access_case,model_case,base.group_user,1,1,1,1

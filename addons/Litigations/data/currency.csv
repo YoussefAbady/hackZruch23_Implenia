@@ -1,0 +1,170 @@
+id,code,name
+AED,AED,UAE Dirham
+AFN,AFN,Afghani
+ALL,ALL,Lek
+AMD,AMD,Armenian Dram
+ANG,ANG,Netherlands Antillian Guilder
+AOA,AOA,Kwanza
+ARS,ARS,Argentine Peso
+AUD,AUD,Australian Dollar
+AWG,AWG,Aruban Guilder
+AZN,AZN,Azerbaijanian Manat
+BAM,BAM,Convertible Marks
+BBD,BBD,Barbados Dollar
+BDT,BDT,Taka
+BGN,BGN,Bulgarian Lev
+BHD,BHD,Bahraini Dinar
+BIF,BIF,Burundi Franc
+BMD,BMD,Bermudian Dollar (customarily known as Bermuda Dollar)
+BND,BND,Brunei Dollar
+BOB_BOV,BOB BOV,Boliviano Mvdol
+BRL,BRL,Brazilian Real
+BSD,BSD,Bahamian Dollar
+BWP,BWP,Pula
+BYR,BYR,Belarussian Ruble
+BZD,BZD,Belize Dollar
+CAD,CAD,Canadian Dollar
+CDF,CDF,Congolese Franc
+CHF,CHF,Swiss Franc
+CLP_CLF,CLP CLF,Chilean Peso Unidades de fomento
+CNY,CNY,Yuan Renminbi
+COP_COU,COP COU,Colombian Peso Unidad de Valor Real
+CRC,CRC,Costa Rican Colon
+CUP_CUC,CUP CUC,Cuban Peso Peso Convertible
+CVE,CVE,Cape Verde Escudo
+CZK,CZK,Czech Koruna
+DJF,DJF,Djibouti Franc
+DKK,DKK,Danish Krone
+DOP,DOP,Dominican Peso
+DZD,DZD,Algerian Dinar
+EEK,EEK,Kroon
+EGP,EGP,Egyptian Pound
+ERN,ERN,Nakfa
+ETB,ETB,Ethiopian Birr
+EUR,EUR,Euro
+FJD,FJD,Fiji Dollar
+FKP,FKP,Falkland Islands Pound
+GBP,GBP,Pound Sterling
+GEL,GEL,Lari
+GHS,GHS,Cedi
+GIP,GIP,Gibraltar Pound
+GMD,GMD,Dalasi
+GNF,GNF,Guinea Franc
+GTQ,GTQ,Quetzal
+GYD,GYD,Guyana Dollar
+HKD,HKD,Hong Kong Dollar
+HNL,HNL,Lempira
+HRK,HRK,Croatian Kuna
+HTG_USD,HTG USD,Gourde US Dollar
+HUF,HUF,Forint
+IDR,IDR,Rupiah
+ILS,ILS,New Israeli Sheqel
+INR,INR,Indian Rupee
+INR_BTN,INR BTN,Indian Rupee Ngultrum
+IQD,IQD,Iraqi Dinar
+IRR,IRR,Iranian Rial
+ISK,ISK,Iceland Krona
+JMD,JMD,Jamaican Dollar
+JOD,JOD,Jordanian Dinar
+JPY,JPY,Yen
+KES,KES,Kenyan Shilling
+KGS,KGS,Som
+KHR,KHR,Riel
+KMF,KMF,Comoro Franc
+KPW,KPW,North Korean Won
+KRW,KRW,Won
+KWD,KWD,Kuwaiti Dinar
+KYD,KYD,Cayman Islands Dollar
+KZT,KZT,Tenge
+LAK,LAK,Kip
+LBP,LBP,Lebanese Pound
+LKR,LKR,Sri Lanka Rupee
+LRD,LRD,Liberian Dollar
+LTL,LTL,Lithuanian Litas
+LVL,LVL,Latvian Lats
+LYD,LYD,Libyan Dinar
+MAD,MAD,Moroccan Dirham
+MDL,MDL,Moldovan Leu
+MGA,MGA,Malagasy Ariary
+MKD,MKD,Denar
+MMK,MMK,Kyat
+MNT,MNT,Tugrik
+MOP,MOP,Pataca
+MRO,MRO,Ouguiya
+MUR,MUR,Mauritius Rupee
+MVR,MVR,Rufiyaa
+MWK,MWK,Kwacha
+MXN_MXV,MXN MXV,Mexican Peso Mexican Unidad de Inversion (UDI)
+MYR,MYR,Malaysian Ringgit
+MZN,MZN,Metical
+NGN,NGN,Naira
+NIO,NIO,Cordoba Oro
+NOK,NOK,Norwegian Krone
+NPR,NPR,Nepalese Rupee
+NZD,NZD,New Zealand Dollar
+OMR,OMR,Rial Omani
+PAB_USD,PAB USD,Balboa US Dollar
+PEN,PEN,Nuevo Sol
+PGK,PGK,Kina
+PHP,PHP,Philippine Peso
+PKR,PKR,Pakistan Rupee
+PLN,PLN,Zloty
+PYG,PYG,Guarani
+QAR,QAR,Qatari Rial
+RON,RON,New Leu
+RSD,RSD,Serbian Dinar
+RUB,RUB,Russian Ruble
+RWF,RWF,Rwanda Franc
+SAR,SAR,Saudi Riyal
+SBD,SBD,Solomon Islands Dollar
+SCR,SCR,Seychelles Rupee
+SDG,SDG,Sudanese Pound
+SEK,SEK,Swedish Krona
+SGD,SGD,Singapore Dollar
+SHP,SHP,Saint Helena Pound
+SLL,SLL,Leone
+SOS,SOS,Somali Shilling
+SRD,SRD,Surinam Dollar
+STD,STD,Dobra
+SVC_USD,SVC USD,El Salvador Colon US Dollar
+SYP,SYP,Syrian Pound
+SZL,SZL,Lilangeni
+THB,THB,Baht
+TJS,TJS,Somoni
+TMT,TMT,Manat
+TND,TND,Tunisian Dinar
+TOP,TOP,Pa'anga
+TRY,TRY,Turkish Lira
+TTD,TTD,Trinidad and Tobago Dollar
+TWD,TWD,New Taiwan Dollar
+TZS,TZS,Tanzanian Shilling
+UAH,UAH,Hryvnia
+UGX,UGX,Uganda Shilling
+USD,USD,US Dollar
+UYU_UYI,UYU UYI,Peso Uruguayo Uruguay Peso en Unidades Indexadas
+UZS,UZS,Uzbekistan Sum
+VEF,VEF,Bolivar Fuerte
+VND,VND,Dong
+VUV,VUV,Vatu
+WST,WST,Tala
+XAF,XAF,CFA Franc BEAC
+XAG,XAG,Silver
+XAU,XAU,Gold
+XBA,XBA,Bond Markets Units European Composite Unit (EURCO)
+XBB,XBB,European Monetary Unit (E.M.U.-6)
+XBC,XBC,European Unit of Account 9(E.U.A.-9)
+XBD,XBD,European Unit of Account 17(E.U.A.-17)
+XCD,XCD,East Caribbean Dollar
+XDR,XDR,SDR
+XFU,XFU,UIC-Franc
+XOF,XOF,CFA Franc BCEAO
+XPD,XPD,Palladium
+XPF,XPF,CFP Franc
+XPT,XPT,Platinum
+XTS,XTS,Codes specifically reserved for testing purposes
+YER,YER,Yemeni Rial
+ZAR,ZAR,Rand
+ZAR_LSL,ZAR LSL,Rand Loti
+ZAR_NAD,ZAR NAD,Rand Namibia Dollar
+ZMK,ZMK,Zambian Kwacha
+ZWL,ZWL

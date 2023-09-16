@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="litigations_currency_action" model="ir.actions.act_window">
+        <field name="name">currencies</field>
+        <field name="res_model">currency</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+     <record id="litigations_country_view_tree" model="ir.ui.view">
+        <field name="name">litigations_currency_tree</field>
+        <field name="model">currency</field>
+        <field name="arch" type="xml">
+            <tree string="Currencies" editable='bottom'> 
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
