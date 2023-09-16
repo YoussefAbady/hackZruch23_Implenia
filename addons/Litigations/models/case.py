@@ -10,55 +10,58 @@ _logger = logging.getLogger(__name__)
 class case(models.Model):
     _name = "case"
     _description = "Litigation Case"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
+
 
 
     #Project Info
-    division_id = fields.Many2one(comodel_name='division', string='Division')
-    country_id = fields.Many2one(comodel_name='country', string='Country')
-    investment_center_id = fields.Many2one(comodel_name='investment.center', string='Investment Center')
-    PSP = fields.Char(string='PSP') #??
-    description = fields.Text(string='Description')
-    is_RDA = fields.Boolean(string='RDA') #??
+    division_id = fields.Many2one(comodel_name='division', string='Division',tracking=True)
+    country_id = fields.Many2one(comodel_name='country', string='Country',tracking=True)
+    investment_center_id = fields.Many2one(comodel_name='investment.center', string='Investment Center',tracking=True)
+    PSP = fields.Char(string='PSP',tracking=True) #??
+    is_RDA = fields.Boolean(string='RDA',tracking=True) #??
 
     #Case Details
-    number = fields.Char(string='Number') # to be unique
-    name = fields.Char(string='Name')
-    case_type = fields.Selection(string='Case Type', selection=[('EXP', 'Expected'), ('ACT', 'Actual')])
-    case_ownership = fields.Selection(string='Case Ownership', selection=[('AGN', 'Against Company'), ('BY', 'By Company')])
-    subject_matter = fields.Char(string='Subject matter')
-    currency_id = fields.Many2one(comodel_name='currency', string='Currency')
-    currency_code = fields.Char(related='currency_id.code')
+    description = fields.Text(string='Description',tracking=True)
+    number = fields.Char(string='Number',tracking=True) # to be unique
+    name = fields.Char(string='Name',tracking=True)
+    case_type = fields.Selection(string='Case Type', selection=[('EXP', 'Expected'), ('ACT', 'Actual')],tracking=True)
+    case_ownership = fields.Selection(string='Case Ownership', selection=[('AGN', 'Against Company'), ('BY', 'By Company')],tracking=True)
+    subject_matter = fields.Char(string='Subject matter',tracking=True)
+    currency_id = fields.Many2one(comodel_name='currency', string='Currency',tracking=True)
+    currency_code = fields.Char(related='currency_id.code',tracking=True)
     
 
     # Handlers
-    bus_res_id = fields.Many2one(comodel_name='res.users', string='Business Responsible')
-    fin_res_id = fields.Many2one(comodel_name='res.users', string='Legal Responsible')
-    leg_res_id = fields.Many2one(comodel_name='res.users', string='Finance Responsible')
+    bus_res_id = fields.Many2one(comodel_name='res.users', string='Business Responsible',tracking=True)
+    fin_res_id = fields.Many2one(comodel_name='res.users', string='Legal Responsible',tracking=True)
+    leg_res_id = fields.Many2one(comodel_name='res.users', string='Finance Responsible',tracking=True)
 
-    claimant = fields.Char(string='Claimant')
-    claim_respondent  = fields.Char(string='Claim Respondent')
-    counter_party_relation = fields.Selection(string='Relation of Counter Party', selection=[('CLI', 'Client'), ('SUB', 'Sub-Contractor'),('AUTH', 'Authorities ')])
+    claimant = fields.Char(string='Claimant',tracking=True)
+    claim_respondent  = fields.Char(string='Claim Respondent',tracking=True)
+    counter_party_relation = fields.Selection(string='Relation of Counter Party', selection=[('CLI', 'Client'), ('SUB', 'Sub-Contractor'),('AUTH', 'Authorities ')],tracking=True)
 
 
     # Legal Assessment
-    expected_enforceable_amount = fields.Integer(string='Expected Enforceable Amount',dafualt='0')
-    accounting_considered_amount = fields.Integer(string='Accounting Considered amount')
-    case_situation = fields.Selection(string='Case Situation', selection=[('OPP', 'Opportunity'), ('RSK', 'Risk')])
+    expected_enforceable_amount = fields.Integer(string='Expected Enforceable Amount',dafualt='0',tracking=True)
+    accounting_considered_amount = fields.Integer(string='Accounting Considered amount',tracking=True)
+    case_situation = fields.Selection(string='Case Situation', selection=[('OPP', 'Opportunity'), ('RSK', 'Risk')],tracking=True)
 
     # Costs
-    expected_legal_cost = fields.Integer(string='Expected Legal Cost')
-    actual_legal_cost = fields.Integer(string='Actual Legal Cost')
-    expected_court_cost = fields.Integer(string='Expected Court Cost')
-    actual_court_cost = fields.Integer(string='Actual Court Cost')
+    expected_legal_cost = fields.Integer(string='Expected Legal Cost',tracking=True)
+    actual_legal_cost = fields.Integer(string='Actual Legal Cost',tracking=True)
+    expected_court_cost = fields.Integer(string='Expected Court Cost',tracking=True)
+    actual_court_cost = fields.Integer(string='Actual Court Cost',tracking=True)
 
     #Dates
-    proceeding_start = fields.Date(string='Proceeding Start')
-    proceeding_end = fields.Date(string='Proceeding End')
+    proceeding_start = fields.Date(string='Proceeding Start',tracking=True)
+    proceeding_end = fields.Date(string='Proceeding End',tracking=True)
 
     #Intersets
-    interest_active_date = fields.Date(string='Interest Active Date')
-    interest_rate = fields.Float(string='Interest Rate (%)',default='0')
-    interest_days = fields.Integer(compute='_compute_interest_days')
+    interest_active_date = fields.Date(string='Interest Active Date',tracking=True)
+    interest_rate = fields.Float(string='Interest Rate (%)',default='0',tracking=True)
+    interest_days = fields.Integer(compute='_compute_interest_days',tracking=True)
     
     interests_amount = fields.Float(string='Interests Amount',compute="_compute_interests_amount",default=0)
     total_growth = fields.Float(string='Total Amount',compute="_compute_total_growth",default=0)
@@ -67,25 +70,25 @@ class case(models.Model):
 
     # Case Status
 
-    proceeding_instance = fields.Integer(string='Proceeding Instance')
+    proceeding_instance = fields.Integer(string='Proceeding Degree',tracking=True)
     proceeding_status = fields.Selection(string='Proceeding Status', selection=[('BRF', 'Exchange of briefs'),
                                                                                 ("RED","Judgement rendered "),
                                                                                  ('EVD', 'Evidence preservation'),
-                                                                                 ('SET', 'Settlement discussions')])
+                                                                                 ('SET', 'Settlement discussions')],tracking=True)
     
-    proceeding_note = fields.Text(string='Proceeding Notes')
+    proceeding_note = fields.Text(string='Proceeding Notes',tracking=True)
 
-    dispute_value = fields.Integer(string='Value in dispute (k)')
-    dispute_value_share = fields.Float(string='Dispute Value Share (%)')
-    actual_dispute_value = fields.Float(string='Actual Dispute Value',compute="_compute_actual_dispute_value",default=0)
+    dispute_value = fields.Integer(string='Value in dispute (k)',tracking=True)
+    dispute_value_share = fields.Float(string='Dispute Value Share (%)',tracking=True)
+    actual_dispute_value = fields.Float(string='Actual Dispute Value',compute="_compute_actual_dispute_value",default=0,tracking=True)
 
-    status = fields.Selection(string='Case Status', selection=[('ACT', 'Active'), ('CLS', 'Closed'),('PEN', 'Pending')])
+    status = fields.Selection(string='Case Status', selection=[('ACT', 'Active'), ('CLS', 'Closed'),('PEN', 'Pending')],tracking=True)
 
 
     # Followup
-    comments = fields.Text(string='Comments')
-    next_milesstone = fields.Char(string='Next Milestone')
-    next_milestone_duedate = fields.Date(string='Next Milestone Due Date')
+    comments = fields.Text(string='Comments',tracking=True)
+    next_milesstone = fields.Char(string='Next Milestone',tracking=True)
+    next_milestone_duedate = fields.Date(string='Next Milestone Due Date',tracking=True)
 
     
 

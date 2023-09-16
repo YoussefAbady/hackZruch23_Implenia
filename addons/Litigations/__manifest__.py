@@ -4,6 +4,7 @@
     'category':'Legal',
     'description':'Implena Legal System',
     'author': "One of HackZurich Teams ( NOT FOR COMMERCIAL USE )",
+    'depends' : ['mail','board'],
      'data': [
         'security/ir.model.access.csv',
         'data/country.csv',
@@ -15,6 +16,7 @@
         'views/litigations_currency.xml',
         'views/litigations_investment_center.xml',
         'views/litigations_case.xml',
+        # 'reports/cases_dashboard.xml',
         'views/litigations_menue.xml'
     ]
 }

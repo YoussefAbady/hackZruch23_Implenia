@@ -9,8 +9,9 @@
             <menuitem id="litigations_currency_action_menue" action="litigations_currency_action"/>
         </menuitem>
 
-        <menuitem id="litigations_cases_menue" name="Cases">
+        <menuitem id="litigations_cases_menue" name="Cases Management">
             <menuitem id="litigations_case_action_menue" action="litigations_case_action"/>
+            <menuitem id="litigations_case_dashboard_action_menue" action="litigations_case_dashboard_action"/>
         </menuitem>
 
     </menuitem>
