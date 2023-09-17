@@ -27,6 +27,7 @@
         <field name="arch" type="xml">
             <form string="Case">
                 <header>
+                    <button name="generate_case_Number" string="Generate Case Number" type="object" />
                     <field name="status" widget="statusbar" statusbar_visible="ACT,PEN,CLS"/>
                 </header>
                 <sheet>
@@ -37,12 +38,12 @@
                             <field name="investment_center_id"/>
                             <field name="PSP"/>
                             <field name="is_RDA"/>
-                            <field name="description"/>
                         </group>  
                         <group col='2' colspan='2'>
                             <group string="Case Details">
                                 <field name="number"/>
                                 <field name="name"/>
+                                <field name="description"/>
                                 <field name="case_type"/>
                                 <field name="case_ownership"/>
                                 <field name="subject_matter"/>
@@ -56,8 +57,8 @@
                                 <field name="counter_party_relation"/>
                             </group>                          
                             <group string="Legal Assessment">
-                                <field name="expected_enforceable_amount"/>
-                                <field name="accounting_considered_amount"/>
+                                <field name="expected_enforceable_amount" decoration-danger="expected_enforceable_amount &lt; 0"/>
+                                <field name="accounting_considered_amount"  decoration-danger="accounting_considered_amount &lt; 0"/>
                                 <field name="case_situation"/>
                                 <field name="expected_legal_cost"/>
                                 <field name="expected_court_cost"/>
@@ -66,20 +67,20 @@
                                 <field name="interest_active_date"/>
                                 <field name="interest_days"/>
                                 <field name="interest_rate"/>
-                                <field name="interests_amount"/>
-                                <field name="total_growth"/>
-                                <field name="total_net"/>
+                                <field name="interests_amount" decoration-danger="interests_amount &lt; 0"/>
+                                <field name="total_growth" decoration-danger="total_growth &lt; 0"/>
+                                <field name="total_net" decoration-danger="total_net &lt; 0"/>
                             </group>
                         </group >
                         <group string="Case Satatus" colspan='2'>
-                            <field name="proceeding_instance"/>
+                            <field name="proceeding_degree"/>
                             <field name="proceeding_status"/>
                             <field name="proceeding_note"/>
                             <field name="actual_legal_cost"/>
                             <field name="actual_court_cost"/>
-                            <field name="dispute_value"/>
+                            <field name="dispute_value" decoration-danger="dispute_value &lt; 0"/>
                             <field name="dispute_value_share"/>
-                            <field name="actual_dispute_value"/>
+                            <field name="actual_dispute_value" decoration-danger="actual_dispute_value &lt; 0"/>
                             <field name="status"/>
                         </group>  
                     </group>

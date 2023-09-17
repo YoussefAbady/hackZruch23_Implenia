@@ -1,6 +1,12 @@
 from odoo import models,fields,api
 from datetime import date
 import logging
+import random
+
+
+
+
+
 
 
 _logger = logging.getLogger(__name__)
@@ -16,18 +22,18 @@ class case(models.Model):
 
 
     #Project Info
-    division_id = fields.Many2one(comodel_name='division', string='Division',tracking=True)
-    country_id = fields.Many2one(comodel_name='country', string='Country',tracking=True)
-    investment_center_id = fields.Many2one(comodel_name='investment.center', string='Investment Center',tracking=True)
-    PSP = fields.Char(string='PSP',tracking=True) #??
-    is_RDA = fields.Boolean(string='RDA',tracking=True) #??
+    division_id = fields.Many2one(comodel_name='division', string='Division',tracking=True,required=True)
+    country_id = fields.Many2one(comodel_name='country', string='Country',tracking=True,required=True)
+    investment_center_id = fields.Many2one(comodel_name='investment.center', string='Investment Center',tracking=True,required=True)
+    PSP = fields.Char(string='PSP',tracking=True,required=True)
+    is_RDA = fields.Boolean(string='RDA',tracking=True)
 
     #Case Details
-    description = fields.Text(string='Description',tracking=True)
-    number = fields.Char(string='Number',tracking=True) # to be unique
-    name = fields.Char(string='Name',tracking=True)
-    case_type = fields.Selection(string='Case Type', selection=[('EXP', 'Expected'), ('ACT', 'Actual')],tracking=True)
-    case_ownership = fields.Selection(string='Case Ownership', selection=[('AGN', 'Against Company'), ('BY', 'By Company')],tracking=True)
+    description = fields.Text(string='Description',tracking=True,required=True)
+    number = fields.Char(string='Number',tracking=True,required=True)
+    name = fields.Char(string='Name',tracking=True,required=True)
+    case_type = fields.Selection(string='Case Type', selection=[('EXP', 'Expected'), ('ACT', 'Actual')],tracking=True,default='EXP')
+    case_ownership = fields.Selection(string='Case Ownership', selection=[('AGN', 'Against Company'), ('BY', 'By Company')],tracking=True,,default='BY')
     subject_matter = fields.Char(string='Subject matter',tracking=True)
     currency_id = fields.Many2one(comodel_name='currency', string='Currency',tracking=True)
     currency_code = fields.Char(related='currency_id.code',tracking=True)
@@ -44,15 +50,15 @@ class case(models.Model):
 
 
     # Legal Assessment
-    expected_enforceable_amount = fields.Integer(string='Expected Enforceable Amount',dafualt='0',tracking=True)
-    accounting_considered_amount = fields.Integer(string='Accounting Considered amount',tracking=True)
+    expected_enforceable_amount = fields.Integer(string='Expected Enforceable Amount (k)',dafualt='0',tracking=True)
+    accounting_considered_amount = fields.Integer(string='Accounting Considered amount (k)',tracking=True)
     case_situation = fields.Selection(string='Case Situation', selection=[('OPP', 'Opportunity'), ('RSK', 'Risk')],tracking=True)
 
     # Costs
-    expected_legal_cost = fields.Integer(string='Expected Legal Cost',tracking=True)
-    actual_legal_cost = fields.Integer(string='Actual Legal Cost',tracking=True)
-    expected_court_cost = fields.Integer(string='Expected Court Cost',tracking=True)
-    actual_court_cost = fields.Integer(string='Actual Court Cost',tracking=True)
+    expected_legal_cost = fields.Integer(string='Expected Legal Cost (k)',tracking=True)
+    actual_legal_cost = fields.Integer(string='Actual Legal Cost (k)',tracking=True)
+    expected_court_cost = fields.Integer(string='Expected Court Cost (k)',tracking=True)
+    actual_court_cost = fields.Integer(string='Actual Court Cost (k)',tracking=True)
 
     #Dates
     proceeding_start = fields.Date(string='Proceeding Start',tracking=True)
@@ -70,7 +76,10 @@ class case(models.Model):
 
     # Case Status
 
-    proceeding_instance = fields.Integer(string='Proceeding Degree',tracking=True)
+    proceeding_degree = fields.Selection(string='Proceeding Degree', selection=[('1st', 'First Degree'),
+                                                                                ("2nd","Second Degree "),
+                                                                                 ('SUP', 'Supreme Court')],tracking=True)
+    
     proceeding_status = fields.Selection(string='Proceeding Status', selection=[('BRF', 'Exchange of briefs'),
                                                                                 ("RED","Judgement rendered "),
                                                                                  ('EVD', 'Evidence preservation'),
@@ -80,7 +89,7 @@ class case(models.Model):
 
     dispute_value = fields.Integer(string='Value in dispute (k)',tracking=True)
     dispute_value_share = fields.Float(string='Dispute Value Share (%)',tracking=True)
-    actual_dispute_value = fields.Float(string='Actual Dispute Value',compute="_compute_actual_dispute_value",default=0,tracking=True)
+    actual_dispute_value = fields.Float(string='Actual Dispute Value (K)',compute="_compute_actual_dispute_value",default=0,tracking=True)
 
     status = fields.Selection(string='Case Status', selection=[('ACT', 'Active'), ('CLS', 'Closed'),('PEN', 'Pending')],tracking=True)
 
@@ -139,9 +148,12 @@ class case(models.Model):
         for record in self:
             record.total_net = 0
             record.total_net = record.total_growth - ( record.expected_legal_cost + record.expected_court_cost)
-      
     
-    
+    def generate_case_Number(self):
+        for record in self:
+            record.number = random.randint(1,1111111)
+        return True
+
 
     
 

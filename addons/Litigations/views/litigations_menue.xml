@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="litigations_root_menue" name="Litigations Management">
+    <menuitem id="litigations_root_menue" name="Litigatracker">
     
         <menuitem id="litigations_settings_menue" name="Settings">
             <menuitem id="litigations_country_action_menue" action="litigations_country_action"/>
@@ -11,7 +11,6 @@
 
         <menuitem id="litigations_cases_menue" name="Cases Management">
             <menuitem id="litigations_case_action_menue" action="litigations_case_action"/>
-            <menuitem id="litigations_case_dashboard_action_menue" action="litigations_case_dashboard_action"/>
         </menuitem>
 
     </menuitem>
